@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #000a1a 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Animações e efeitos neon */
+@keyframes neonGlow {
+    0%, 100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff; }
+    50% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Header */
+header {
+    background: linear-gradient(45deg, #000000, #1a0033, #000a1a);
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%2300ffff" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 28px;
+    font-weight: 900;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    animation: neonGlow 3s ease-in-out infinite;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.neon-text h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: 80px;
+    font-weight: 900;
+    background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: neonGlow 2s ease-in-out infinite, pulse 4s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+.neon-text h2 {
+    font-size: 32px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    margin-bottom: 30px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn.primary {
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    color: #000000;
+    border: 2px solid #00ffff;
+}
+
+.btn.primary:hover {
+    background: linear-gradient(45deg, #0080ff, #00ffff);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+.btn.secondary {
+    background: linear-gradient(45deg, #ff00ff, #ff0080);
+    color: #ffffff;
+    border: 2px solid #ff00ff;
+}
+
+.btn.secondary:hover {
+    background: linear-gradient(45deg, #ff0080, #ff00ff);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+}
+
+.btn.glow {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Seções principais */
+main {
+    padding: 50px;
+}
+
+section {
+    margin-bottom: 100px;
+    position: relative;
+}
+
+section h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+section > p {
+    text-align: center;
+    font-size: 20px;
+    color: #cccccc;
+    margin-bottom: 50px;
+}
+
+/* Cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card, .neon-card {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover, .neon-card:hover {
+    transform: translateY(-10px);
+    border-color: #00ffff;
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.card h3, .neon-card h3 {
+    font-size: 24px;
+    color: #00ffff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.card p, .neon-card p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* Produtos */
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.produto-card {
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
+    border: 2px solid rgba(255, 0, 255, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.produto-card:hover {
+    transform: scale(1.05);
+    border-color: #ff00ff;
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3);
+}
+
+.produto-card h3 {
+    font-size: 24px;
+    color: #ff00ff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.produto-effect {
+    width: 60px;
+    height: 60px;
+    margin: 20px auto;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.neon-drop { background: radial-gradient(circle, #00ffff, #0080ff); }
+.pulse { background: radial-gradient(circle, #ff00ff, #ff0080); }
+.reflex { background: radial-gradient(circle, #ffff00, #ff8000); }
+.gummy { background: radial-gradient(circle, #00ff00, #80ff00); }
+
+/* Estrutura */
+.hierarquia {
+    text-align: center;
+}
+
+.lider {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 0, 255, 0.2));
+    border: 3px solid #ffd700;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lider h3 {
+    font-size: 32px;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+    margin-bottom: 15px;
+}
+
+.membros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.membro {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.membro:hover {
+    border-color: #00ffff;
+    transform: translateY(-5px);
+}
+
+.membro h4 {
+    color: #00ffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+/* Atuação */
+.atuacao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.atuacao-item {
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
+    border: 2px solid rgba(255, 0, 255, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.atuacao-item:hover {
+    border-color: #ff00ff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.2);
+}
+
+.atuacao-item h3 {
+    color: #ff00ff;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Distrito */
+.distrito-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 0, 51, 0.8));
+    border: 3px solid #00ffff;
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.distrito-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%2300ffff" opacity="0.3"><animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/></circle></svg>');
+    opacity: 0.2;
+}
+
+.distrito-section h3 {
+    font-size: 28px;
+    color: #00ffff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #000000, #1a0033);
+    padding: 40px 50px;
+    border-top: 2px solid #00ffff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 24px;
+    font-weight: 900;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.footer-description {
+    font-size: 16px;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.social-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .neon-text h1 {
+        font-size: 48px;
+    }
+
+    .neon-text h2 {
+        font-size: 24px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 36px;
+    }
+
+    .cards-container,
+    .produtos-grid,
+    .membros-grid,
+    .atuacao-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 20px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+    }
+}
+
