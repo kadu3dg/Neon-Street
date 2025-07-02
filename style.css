@@ -17,6 +17,16 @@ body {
     50% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff; }
 }
 
+@keyframes rainbowText {
+    0% { color: #ff0000; }
+    16.66% { color: #ff8000; }
+    33.33% { color: #ffff00; }
+    50% { color: #00ff00; }
+    66.66% { color: #00ffff; }
+    83.33% { color: #8000ff; }
+    100% { color: #ff0000; }
+}
+
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -56,12 +66,14 @@ nav {
 }
 
 .logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 28px;
-    font-weight: 900;
-    color: #00ffff;
-    text-shadow: 0 0 10px #00ffff;
-    animation: neonGlow 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+}
+
+.logo-gif {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px #00ffff);
 }
 
 nav ul {
@@ -197,6 +209,16 @@ section h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* Efeito arco-íris especial para "Nosso Conceito" */
+.conceito-section h2 {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    animation: rainbowText 3s ease-in-out infinite;
+    text-shadow: 0 0 10px currentColor;
 }
 
 section > p {
@@ -457,6 +479,10 @@ footer {
         margin-top: 20px;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .logo-gif {
+        height: 40px;
     }
 
     .neon-text h1 {
